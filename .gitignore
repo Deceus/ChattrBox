@@ -1,0 +1,4 @@
+node_modules
+app/scripts/dist
+server/dist
+.env

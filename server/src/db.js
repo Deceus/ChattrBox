@@ -1,0 +1,10 @@
+const MONGODB_URI = process.env.MONGODB_URI;
+const mongoose = require('mongoose');
+const findOrCreate = require('mongoose-findorcreate');
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+const Schema = mongoose.Schema;
+const UserSchema = new Schema({ email: String, name: String });
+UserSchema.plugin(findOrCreate);
+const User = mongoose.model('User', UserSchema);
+module.exports = { User };
